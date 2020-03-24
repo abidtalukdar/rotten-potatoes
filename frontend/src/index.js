@@ -8,32 +8,28 @@ const renderAllMovies = (moviesData) => {
     moviesData.forEach(renderOneMovie)
 }
 
-const renderOneMovie = (movieData) => {
-    console.log(movieData)
+const renderReviews = (reviews) => {
+    return reviews.map(review => {
+        return `<li>"${review.rating}/10 ${review.review}" - ${review.reviewer}</li>`
+    }).join("")
+}
+
+const renderOneMovie = (movie) => {
     const movieDiv = document.createElement("div")
     movieDiv.className = "movie"
-    movieDiv.dataset.id = `${movieData.id}`
+    movieDiv.dataset.id = `${movie.id}`
     movieDiv.innerHTML = `
-        <h3>${movieData.name} (${movieData.year_released})</h3>
-        <div><i>${movieData.film_rating} | ${movieData.genre}</i></div>
-        <p>Director: ${movieData.director}</p>
-        <div><img src=${movieData.image_url}></div>
-        <h4>Synopsis:</h4>
-        <p>${movieData.synopsis}</p>
-        
-        <br>
+        <h2>${movie.name} (${movie.year_released})</h2>
+        <i>${movie.film_rating}</i> <strong>|</strong> <i>${movie.genre}</i>
+        <p>Director: ${movie.director}</p>
+        <div><img src=${movie.image_url}></div>
+        <h3>Synopsis:</h3>
+        ${movie.synopsis}
+        <h3>Movie Reviews:</h3> 
+        <h4>Average Audience Rating: <i>${movie.movie_rating}</i></h4>
+        <ul id="${movie.id}" data-id="${movie.id}">
+        ${renderReviews(movie.reviews)}
+        </ul>
     `
     movieContainer.append(movieDiv)
 }
-
-// "id": 1,
-// "name": "The Shawshank Redemption",
-// "genre": "Drama",
-// "director": "Frank Darabont",
-// "year_released": "1994",
-// "synopsis": "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
-// "image_url": "https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg",
-// "movie_rating": 8.75,
-// "movie_reviews": [
-// "Great movie! - Jemy",
-// "Good movie! - Abid"

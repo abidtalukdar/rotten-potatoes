@@ -13,10 +13,10 @@ class Movie < ApplicationRecord
         end
     end
 
-    def movie_reviews
-        self.reviews.map do |review|
-            "#{review.review} - #{review.reviewer}"
-        end
-    end
+    # def movie_reviews
+    #     self.reviews # .map do |review|
+    #         # "#{review.rating} #{review.review} - #{review.reviewer}"
+    #     # end
+    # end
 
 end
