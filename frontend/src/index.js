@@ -59,6 +59,7 @@ const renderOneMovie = (movie) => {
 
 
 
+
 // this function renders all the comments by taking in one review hash and the reviewsUl for that specific movie
 const renderReview = (review, reviewUl) => {
     const reviewLi = document.createElement("li")
@@ -69,14 +70,12 @@ const renderReview = (review, reviewUl) => {
     `
     reviewUl.append(reviewLi)
 
-    // const reviewPost = document.querySelector(`[data-id="${review.id}"]`)
     reviewLi.addEventListener("click", event => {
         if (event.target.dataset.action === "delete-review") {
             fetch(`http://localhost:3000/reviews/${review.id}`, {
                 method: "DELETE"
             })
             .then(response => {
-                console.log(response)
                 return response.json()
               })
             .then(() => {
@@ -92,15 +91,12 @@ const handleReviewFormSubmit = (event) => {
     event.preventDefault()
     const form = event.target
     const reviewUl = document.getElementById(`${form.dataset.id}`)
-    console.log(reviewUl)
     const newReview = {
         movie_id: form.dataset.id,
         rating: form.rating.value,
         review: form.review.value,
         reviewer: form.reviewer.value
     }
-
-    renderReview(newReview, reviewUl)
 
     fetch(`http://localhost:3000/reviews`, {
         method: "POST",
@@ -110,7 +106,10 @@ const handleReviewFormSubmit = (event) => {
         },
         body: JSON.stringify(newReview)
     })
-    .then(response => response.json())
+    .then(response => {
+        return response.json()
+    })
+    .then(() => {
+        renderReview(newReview, reviewUl)
+    })
 }
-
-

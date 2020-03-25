@@ -10,16 +10,18 @@ class ReviewsController < ApplicationController
     end
 
     def create 
-        Review.create(review_params)
+        @review = Review.create(review_params)
+        render json: @review
     end
     
     def destroy
         @review = Review.find_by(id: params[:id])
         @review.destroy
+        render json: @review
     end
 
         private 
-        
+
         def review_params
             params.permit(:movie_id, :rating, :review, :reviewer)
         end
