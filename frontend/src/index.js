@@ -18,7 +18,7 @@ const renderAllMovies = (moviesData) => {
 // renders one movie at a time and after the movie is appended to the movieContainer on line 31, the reviews for each movie are added throught the renderReview function on line 34
 const renderOneMovie = (movie) => {
     const movieDiv = document.createElement("div")
-    movieDiv.className = "movie"
+    movieDiv.className = "movie-card"
     movieDiv.dataset.id = `${movie.id}`
     movieDiv.innerHTML = `
         <h2>${movie.name} (${movie.year_released})</h2>
@@ -28,7 +28,7 @@ const renderOneMovie = (movie) => {
         <h3>Synopsis:</h3>
         ${movie.synopsis}
         <h3>Movie Reviews:</h3> 
-        <ul id="${movie.id}" class="reviews-container">
+        <ul id="${movie.id}-reviews-container" class="reviews-container">
         </ul><br>
         <h4>Leave Review for "${movie.name}"</h4> 
         <form id="${movie.id}-review-form" data-id="${movie.id}">
@@ -46,7 +46,8 @@ const renderOneMovie = (movie) => {
     `
 
     movieContainer.append(movieDiv) // movie is on index.html
-    const reviewUl = document.getElementById(`${movie.id}`) // each movie has a reviews container which can be accessed by using document.getElementById(id). "id" being the movie's id
+    
+    const reviewUl = document.getElementById(`${movie.id}-reviews-container`) // each movie has a reviews container which can be accessed by using document.getElementById(id). "id" being the movie's id
     movie.reviews.forEach(review => {
         return renderReview(review, reviewUl)
     })
@@ -87,10 +88,11 @@ const renderReview = (review, reviewUl) => {
 
 
 
+
 const handleReviewFormSubmit = (event) => {
     event.preventDefault()
     const form = event.target
-    const reviewUl = document.getElementById(`${form.dataset.id}`)
+    const reviewUl = document.getElementById(`${form.dataset.id}-reviews-container`)
     const newReview = {
         movie_id: form.dataset.id,
         rating: form.rating.value,
@@ -109,7 +111,7 @@ const handleReviewFormSubmit = (event) => {
     .then(response => {
         return response.json()
     })
-    .then(() => {
-        renderReview(newReview, reviewUl)
+    .then(reviewData => {
+        renderReview(reviewData, reviewUl)
     })
 }
