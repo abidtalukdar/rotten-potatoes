@@ -28,6 +28,9 @@ const renderOneMovie = (movie) => {
         <h3>Synopsis:</h3>
         ${movie.synopsis}
         <h3>Movie Reviews:</h3> 
+        <ul id="${movie.id}" class="reviews-container">
+        </ul><br>
+        <h4>Leave Review for "${movie.name}"</h4> 
         <form id="${movie.id}-review-form" data-id="${movie.id}">
             <label>Movie Rating:</label>
             <input type="number" name="rating" min="0" max="10" step="0.5"><br>
@@ -39,10 +42,7 @@ const renderOneMovie = (movie) => {
             <input type="text" name="reviewer" placeholder="Name"><br>
 
             <input type="submit" value="Post Your Review">
-        </form>
-        <h4>Average Audience Rating: <i>${movie.movie_rating}</i></h4>
-        <ul id="${movie.id}" class="reviews-container">
-        </ul>
+        </form><br>
     `
 
     movieContainer.append(movieDiv) // movie is on index.html
