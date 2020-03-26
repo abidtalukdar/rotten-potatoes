@@ -1,3 +1,133 @@
 h1 {
-  color: red;
+    margin: 1rem;
+    padding: 0.5rem;
+    text-transform: uppercase;
+    font-size: 2em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+body {
+  font-family: Lato, 'Helvetica Neue', Helvetica, sans-serif;
+  font-size: 14px;
+  transition: all 0.2s;
+  background-color: cornsilk
+}
+
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: cornsilk;
+  margin: auto;
+  padding: 20px;
+  border: 40px solid #888;
+  width: 80%;
+  border-color: white;
+}
+
+.modal-content .image img {
+    width: 25%;
+    height: 25%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-content .image img {
+    width: 25%;
+    height: 25%;
+}
+
+.form input[type=submit] {
+    font-size: 1rem;
+    padding: 1rem;
+    /* width: 4rem; */
+    text-align: center;
+    display: inline-block;
+}
+
+form input[type=submit] {
+    margin: 1em 0 0 0;
+    padding: 1em;
+    width: auto;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  /* Float four columns side by side */
+  .column {
+    float: left;
+    width: 25%;
+    padding: 0 10px;
+  }
+  
+  /* Remove extra left and right margins, due to padding in columns */
+  .row {margin: 0 -5px;}
+
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Style the counter cards */
+  .movie-card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+    padding: 16px;
+    text-align: center;
+    background-color: whitesmoke;
+    margin-bottom: 2rem;
+
+  }
+  
+  /* Responsive columns - one column layout (vertical) on small screens */
+  @media screen and (max-width: 600px) {
+    .column {
+      width: 100%;
+      display: block;
+      margin-bottom: 20px;
+    }
+  }
+
+img {
+    width: 250px;
+    height: 400px;
 }
