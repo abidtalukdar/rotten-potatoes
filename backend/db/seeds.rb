@@ -53,6 +53,33 @@ movies = [
         "year_released": "1980",
         "synopsis": "After the Rebels are brutally overpowered by the Empire on the ice planet Hoth, Luke Skywalker begins Jedi training with Yoda, while his friends are pursued by Darth Vader and a bounty hunter named Boba Fett all over the galaxy.",
         "image_url": "https://m.media-amazon.com/images/M/MV5BYmU1NDRjNDgtMzhiMi00NjZmLTg5NGItZDNiZjU5NTU4OTE0XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SY1000_CR0,0,641,1000_AL_.jpg"
+    },
+    {
+        "name": "Schindler's List",
+        "film_rating": "Rated R",
+        "genre": "Biography",
+        "director": "Steven Spielberg",
+        "year_released": "1993",
+        "synopsis": "In German-occupied Poland during World War II, industrialist Oskar Schindler gradually becomes concerned for his Jewish workforce after witnessing their persecution by the Nazis.",
+        "image_url": "https://m.media-amazon.com/images/M/MV5BNDE4OTMxMTctNmRhYy00NWE2LTg3YzItYTk3M2UwOTU5Njg4XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SY1000_CR0,0,666,1000_AL_.jpg"
+    },
+    {
+        "name": "Pulp Fiction",
+        "film_rating": "Rated R",
+        "genre": "Crime",
+        "director": "Quentin Tarantino",
+        "year_released": "1994",
+        "synopsis": "The lives of two mob hitmen, a boxer, a gangster and his wife, and a pair of diner bandits intertwine in four tales of violence and redemption.",
+        "image_url": "https://m.media-amazon.com/images/M/MV5BNGNhMDIzZTUtNTBlZi00MTRlLWFjM2ItYzViMjE3YzI5MjljXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SY1000_CR0,0,686,1000_AL_.jpg"
+    },
+    {
+        "name": "Inception",
+        "film_rating": "Rated PG-13",
+        "genre": "Action",
+        "director": "Christopher Nolan",
+        "year_released": "2010",
+        "synopsis": "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.",
+        "image_url": "https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_SY1000_CR0,0,675,1000_AL_.jpg"
     }
 ]
 
@@ -67,16 +94,3 @@ movies.each do |movie_hash|
         image_url: movie_hash[:image_url]
     )
 end
-
-Review.find_or_create_by(
-    movie_id: 6,
-    rating: 9.0,
-    review: "Great movie!",
-    reviewer: "Jemy"
-)
-Review.find_or_create_by(
-    movie_id: 6,
-    rating: 8.5,
-    review: "Good movie!",
-    reviewer: "Abid"
-)

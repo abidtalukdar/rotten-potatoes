@@ -142,4 +142,6 @@ const handleReviewFormSubmit = (event) => {
     .then(reviewData => {
         renderReview(reviewData, reviewUl)
     })
+
+    form.reset()
 }
