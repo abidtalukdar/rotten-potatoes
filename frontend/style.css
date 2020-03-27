@@ -2,8 +2,10 @@
     padding: 10px;
     text-align: center;
     color: white;
-    /* border-bottom: 3px solid whitesmoke;
-    padding-bottom: 20px; */
+    background-color: rosybrown;
+    border: 10px solid whitesmoke;
+    padding-bottom: 20px;
+    margin: 10px 0;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -21,11 +23,34 @@ body {
     color: white;
     font-size: 14px;
     transition: all 0.2s;
-    background-color: rosybrown
+    background-color: lightgrey;
 }
 
 ul {
-    list-style: none;
+    /* list-style: none; */
+    list-style-type: square;
+}
+
+li {
+    margin: 10px 0;
+}
+
+button {
+    font-style: italic;
+    padding: 0;
+    border: none;
+    font: inherit;
+    color: inherit;
+    padding: 3px;
+    color: lightcoral;
+    background-color: whitesmoke;
+    /* show a hand cursor on hover; some argue that we
+    should keep the default arrow cursor for buttons */
+    cursor: pointer;
+  }
+
+.delete {
+    float: right;
 }
 
 * {
@@ -139,7 +164,7 @@ img {
 } 
 
 .review-post {
-    max-width: 40%;
+    max-width: 60%;
     padding-top: 5px;
     padding-bottom: 5px;
     border-top: 3px solid whitesmoke;
@@ -174,3 +199,4 @@ form input, form textarea {
     padding: 0.25em 1em;
     margin: 0.25em 0 0.5em;
 }
+

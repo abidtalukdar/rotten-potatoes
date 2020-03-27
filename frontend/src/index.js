@@ -78,7 +78,7 @@ const renderMovieModal = (movie) => {
                 <input type="text" name="reviewer" placeholder="Please Enter Your Name"><br>
             
                 <label>Movie Rating:</label>
-                <input type="number" name="rating" min="0" max="10" step="0.5" placeholder="Rate '${movie.name}' from 1 to 10"><br>
+                <input type="number" name="rating" min="0" max="10" step="1" placeholder="Rate '${movie.name}' from 1 to 10 🥔's"><br>
 
                 <label>Review:</label><br>
                 <textarea type="text" name="review" placeholder="Please Enter Your Review for '${movie.name}'"></textarea><br>
@@ -89,7 +89,6 @@ const renderMovieModal = (movie) => {
     `
 
     const reviewUl = document.getElementById(`${movie.id}-reviews-container`) 
-    console.log(movie.reviews.length)
     if (movie.reviews.length > 0) {
         movie.reviews.forEach(review => {
             return renderReview(review, reviewUl)
@@ -113,7 +112,7 @@ const renderReview = (review, reviewUl) => {
     reviewLi.dataset.id = review.id
     reviewLi.className = "review-post"
     reviewLi.innerHTML = `
-    "${review.rating}/10 ${review.review}" - ${review.reviewer} <button data-action="delete-review" class="delete">x</button>
+    ${review.reviewer}'s Potato Rating: "${review.rating} 🥔's ~ ${review.review}" <button data-action="delete-review" class="delete">Remove</button>
     `
     reviewUl.append(reviewLi)
 
@@ -141,7 +140,7 @@ const handleReviewFormSubmit = (event) => {
         movie_id: form.dataset.id,
         rating: form.rating.value,
         review: form.review.value,
-        reviewer: form.reviewer.value
+        reviewer: form.reviewer.value.charAt(0).toUpperCase() + form.reviewer.value.slice(1)
     }
 
     fetch(`http://localhost:3000/reviews`, {
