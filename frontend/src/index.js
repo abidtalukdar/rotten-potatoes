@@ -55,34 +55,50 @@ const fetchMovie = (movieId) => {
 const renderMovieModal = (movie) => {
     const modalContent = document.querySelector(".modal-content")
     modalContent.innerHTML = `
-        <h2>${movie.name} (${movie.year_released})</h2>
-        <i>${movie.film_rating}</i> <strong>|</strong> <i>${movie.genre}</i>
-        <p>Director: ${movie.director}</p>
-        <div class="image"><img src=${movie.image_url}></div>
-        <h3>Synopsis:</h3>
-        ${movie.synopsis}
-        <h3>Movie Reviews:</h3> 
-        <ul id="${movie.id}-reviews-container" class="reviews-container">
-        </ul><br>
-        <h4>Leave Review for "${movie.name}"</h4> 
-        <form id="${movie.id}-review-form" data-id="${movie.id}" class="form">
-            <label>Reviewer Name:</label>
-            <input type="text" name="reviewer" placeholder="Please Enter Your Name Here"><br>
-        
-            <label>Movie Rating:</label>
-            <input type="number" name="rating" min="0" max="10" step="0.5" placeholder="Rate"><br>
+        <div class="title">
+            <h2>${movie.name} (${movie.year_released})</h2>
+            <h5><i>${movie.film_rating}</i> | <i>${movie.genre}</i></h5>
+        </div>
+        <div class="image">
+            <img src=${movie.image_url}>
+        </div>
+        <div class="movie-info">
+            <h3>Summary:</h3>
+            ${movie.synopsis}
+            <p><strong>Director: </strong>${movie.director}</p>
+            <h3>Movie Reviews:</h3> 
+            <ul id="${movie.id}-reviews-container" class="reviews-container">
+            </ul>
+        </div>
+        <div class="form-title">
+            <h3>Post a Review for '${movie.name}'</h3> 
+            <form id="${movie.id}-review-form" data-id="${movie.id}" class="form">
 
-            <label>Review:</label><br>
-            <textarea type="text" name="review" placeholder="Please Enter Your Review"></textarea><br>
+                <label>Name of Reviewer:</label>
+                <input type="text" name="reviewer" placeholder="Please Enter Your Name"><br>
+            
+                <label>Movie Rating:</label>
+                <input type="number" name="rating" min="0" max="10" step="0.5" placeholder="Rate '${movie.name}' from 1 to 10"><br>
 
-            <input type="submit" value="Post Your Review">
-        </form><br>
+                <label>Review:</label><br>
+                <textarea type="text" name="review" placeholder="Please Enter Your Review for '${movie.name}'"></textarea><br>
+
+                <input type="submit" value="Post Your Review">
+            </form><br>
+        </div
     `
 
     const reviewUl = document.getElementById(`${movie.id}-reviews-container`) 
-    movie.reviews.forEach(review => {
-        return renderReview(review, reviewUl)
-    })
+    console.log(movie.reviews.length)
+    if (movie.reviews.length > 0) {
+        movie.reviews.forEach(review => {
+            return renderReview(review, reviewUl)
+        })
+    } else {
+        reviewUl.innerHTML = `
+        <p><i>Be the first to review '${movie.name}'!</i></p>
+        `
+    }
 
     const reviewForm = document.getElementById(`${movie.id}-review-form`)
     reviewForm.addEventListener("submit", event => {
@@ -141,6 +157,7 @@ const handleReviewFormSubmit = (event) => {
     })
     .then(reviewData => {
         renderReview(reviewData, reviewUl)
+        fetchMovie(form.dataset.id)
     })
 
     form.reset()

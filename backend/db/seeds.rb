@@ -5,28 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-# Review.destroy_all
-# Movie.destroy_all
+Review.destroy_all
+Movie.destroy_all
 
 movies = [
-    {
-        "name": "The Shawshank Redemption",
-        "film_rating": "Rated R",
-        "genre": "Drama",
-        "director": "Frank Darabont",
-        "year_released": "1994",
-        "synopsis": "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
-        "image_url": "https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg"
-    },
-    {
-        "name": "The Godfather",
-        "film_rating": "Rated R",
-        "genre": "Crime",
-        "director": "Francis Ford Coppola",
-        "year_released": "1972",
-        "synopsis": "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.",
-        "image_url": "https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SY1000_CR0,0,704,1000_AL_.jpg"
-    },
     {
         "name": "The Dark Knight",
         "film_rating": "Rated PG-13",
@@ -80,6 +62,24 @@ movies = [
         "year_released": "2010",
         "synopsis": "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.",
         "image_url": "https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_SY1000_CR0,0,675,1000_AL_.jpg"
+    },
+    {
+        "name": "The Shawshank Redemption",
+        "film_rating": "Rated R",
+        "genre": "Drama",
+        "director": "Frank Darabont",
+        "year_released": "1994",
+        "synopsis": "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
+        "image_url": "https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg"
+    },
+    {
+        "name": "The Godfather",
+        "film_rating": "Rated R",
+        "genre": "Crime",
+        "director": "Francis Ford Coppola",
+        "year_released": "1972",
+        "synopsis": "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.",
+        "image_url": "https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SY1000_CR0,0,704,1000_AL_.jpg"
     }
 ]
 
